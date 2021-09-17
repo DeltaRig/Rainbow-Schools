@@ -17,15 +17,32 @@ namespace Rainbow_Schools
             path = Directory.GetCurrentDirectory();
             path += FILENAME;
 
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("The program Retrieve Student Data from a Text File");
-            Console.ForegroundColor = ConsoleColor.White;
-            ReadFile();
+            string option = "";
 
             do
             {
-
-            } while (true);
+                Console.ForegroundColor = ConsoleColor.Green;               
+                Console.WriteLine("1. Retrieve Student Data from a Text File\n" +
+                                  "0. Exit");
+                Console.ForegroundColor = ConsoleColor.White;
+                option = Console.ReadLine();
+                switch (option)
+                {
+                    case "1":
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("Reading the text");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        ReadFile();
+                        break;
+                    case "0":
+                        return;
+                    default:
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("Invalid option, try again");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        break;
+                }
+            } while (!option.Equals("0"));
         }
 
         private static void ReadFile() {
@@ -36,12 +53,6 @@ namespace Rainbow_Schools
 
                 foreach (string line in lines)
                 {
-                    string[] lineToTeacher = line.Split(';');
-
-                    long currentID = long.Parse(lineToTeacher[0]);
-
-                    //teachers.Add(new Teacher(currentID, lineToTeacher[1], lineToTeacher[2], lineToTeacher[3]));
-
                     Console.WriteLine("\t" + line);
                 }
             }

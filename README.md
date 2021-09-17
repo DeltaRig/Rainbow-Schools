@@ -1,5 +1,7 @@
 # Rainbow-Schools
-Phase 1 - Retrieve Student Data from a Text File
+Phase 1 - C Sharp Basic
+
+Retrieve Student Data from a Text File
 
 ## DESCRIPTION
 
