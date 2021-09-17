@@ -22,7 +22,7 @@ namespace Rainbow_Schools
             do
             {
                 Console.ForegroundColor = ConsoleColor.Green;               
-                Console.WriteLine("1. Retrieve Student Data from a Text File\n" +
+                Console.WriteLine("\n1. Retrieve Student Data from a Text File\n" +
                                   "0. Exit");
                 Console.ForegroundColor = ConsoleColor.White;
                 option = Console.ReadLine();
