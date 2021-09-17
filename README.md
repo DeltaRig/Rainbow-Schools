@@ -1,3 +1,5 @@
+Author: Daniela Pereira Rigoli
+
 # Rainbow-Schools
 Phase 1 - C Sharp Basic
 
