@@ -1,21 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Rainbow_Schools
 {
     class Program
     {
-        private static string FILENAME = "\\records.txt";
-        private static string path;
 
         static void Main(string[] args)
         {
-            path = Directory.GetCurrentDirectory();
-            path += FILENAME;
+            Studants studants = new Studants();
 
             string option = "";
 
@@ -32,7 +24,7 @@ namespace Rainbow_Schools
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.WriteLine("Reading the text");
                         Console.ForegroundColor = ConsoleColor.White;
-                        ReadFile();
+                        studants.ShowStudants();
                         break;
                     case "0":
                         return;
@@ -45,34 +37,6 @@ namespace Rainbow_Schools
             } while (!option.Equals("0"));
         }
 
-        private static void ReadFile() {
-
-            try
-            {
-                if (File.Exists(path))
-                {
-                    string[] lines = System.IO.File.ReadAllLines(path);
-
-                    if(lines.Count() == 0)
-                            Console.WriteLine("Don't have any data");
-
-                    foreach (string line in lines)
-                    {
-                        Console.WriteLine("\t" + line);
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("File not found, should be in the same folder that the app with the name records.txt");
-                    Console.WriteLine("Don't delete 'records.txt' file");
-                    Console.WriteLine("Creating the file empty, the text will be updated with data offline, using a notepad or text editor.");
-
-                    System.IO.File.Create(path);
-                }
-            } catch
-            {
-                Console.WriteLine("Don't found the data");
-            }
-        }
+       
     }
 }
