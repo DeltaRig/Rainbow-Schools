@@ -11,12 +11,13 @@ namespace Rainbow_Schools
     {
         private static string FILENAME = "\\records.txt";
         private static string path;
-        private static string[] studants;
+        private static List<Studant> studants;
 
         public Studants()
         {
             path = Directory.GetCurrentDirectory();
             path += FILENAME;
+            studants = new List<Studant>();
 
             ReadFile();
             SortStudants();
@@ -28,7 +29,13 @@ namespace Rainbow_Schools
             {
                 if (File.Exists(path))
                 {
-                    studants = System.IO.File.ReadAllLines(path);
+                    string[] lines = System.IO.File.ReadAllLines(path);
+
+                    foreach(string line in lines)
+                    {
+                        string[] temp = line.Split(',');
+                        studants.Add(new Studant(temp[0], temp[1].Trim()));
+                    }
                 }
                 else
                 {
@@ -52,7 +59,10 @@ namespace Rainbow_Schools
 
         public void ShowStudants()
         {
-            return;
+            foreach(Studant s in studants)
+            {
+                Console.WriteLine(s.ToString());
+            }
         }
 
     }

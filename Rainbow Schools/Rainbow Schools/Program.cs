@@ -21,9 +21,6 @@ namespace Rainbow_Schools
                 switch (option)
                 {
                     case "1":
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("Reading the text");
-                        Console.ForegroundColor = ConsoleColor.White;
                         studants.ShowStudants();
                         break;
                     case "0":
