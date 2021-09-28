@@ -8,19 +8,20 @@ namespace Rainbow_Schools
 {
     class Studant
     {
-        private string name;
+        private string _name;
         private string _class;
 
         public Studant(string n, string c)
         {
-            this.name = n;
+            this._name = n;
             this._class = c;
         }
 
+        public string Name => _name;
 
         public string ToString()
         {
-            return name + "\t|\t" + _class;
+            return _name + "\t|\t" + _class;
         }
     }
 }

@@ -9,18 +9,18 @@ namespace Rainbow_Schools
 {
     class Studants
     {
-        private static string FILENAME = "\\records.txt";
+        private static string FILENAME = "\\studants.txt";
         private static string path;
-        private static List<Studant> studants;
+        private static Studant[] studants;
 
         public Studants()
         {
+            Console.WriteLine("criei a classe studants");
             path = Directory.GetCurrentDirectory();
             path += FILENAME;
-            studants = new List<Studant>();
 
             ReadFile();
-            SortStudants();
+            //SortStudantsQS(0, studants.Count() - 1);
         }
 
         private static void ReadFile()
@@ -30,17 +30,20 @@ namespace Rainbow_Schools
                 if (File.Exists(path))
                 {
                     string[] lines = System.IO.File.ReadAllLines(path);
+                    studants = new Studant[lines.Count()];
 
-                    foreach(string line in lines)
+                    int i = 0;
+                    foreach (string line in lines)
                     {
                         string[] temp = line.Split(',');
-                        studants.Add(new Studant(temp[0], temp[1].Trim()));
+                        studants[i] = (new Studant(temp[0], temp[1].Trim()));
+                        i++;
                     }
                 }
                 else
                 {
-                    Console.WriteLine("File not found, should be in the same folder that the app with the name records.txt");
-                    Console.WriteLine("Don't delete 'records.txt' file");
+                    Console.WriteLine("File not found, should be in the same folder that the app with the name studants.txt");
+                    Console.WriteLine("Don't delete 'studants.txt' file");
                     Console.WriteLine("Creating the file empty, the text will be updated with data offline, using a notepad or text editor.");
 
                     System.IO.File.Create(path);
@@ -52,10 +55,50 @@ namespace Rainbow_Schools
             }
         }
 
-        private static void SortStudants()
+        private void SortStudantsQS(int left, int right)
         {
-            return;
+            int pivotPos;
+            if (left < right)
+            {
+                pivotPos = partition(left, right);
+                if (pivotPos > 1)
+                {
+                    
+                    SortStudantsQS(left, pivotPos - 1);
+                }
+                if (pivotPos + 1 < right)
+                {
+                    SortStudantsQS(pivotPos + 1, right);
+                }
+            }
         }
+
+        private int partition(int left, int right)
+        {
+            int pivotPos = left;
+            while (true)
+            {
+                while (studants[left].Name.CompareTo(studants[pivotPos].Name) < 0)
+                {
+                    left++;
+                }
+                while (studants[right].Name.CompareTo(studants[pivotPos].Name) > 0)
+                {
+                    right--;
+                }
+                if (left < right)
+                {
+                    Studant temp = studants[right];
+                    studants[right] = studants[left];
+                    studants[left] = temp;
+                }
+                else
+                {
+                    return right;
+                }
+            }
+        }
+
 
         public void ShowStudants()
         {
