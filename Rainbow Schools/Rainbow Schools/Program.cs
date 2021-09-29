@@ -7,7 +7,7 @@ namespace Rainbow_Schools
 
         static void Main(string[] args)
         {
-            Studants studants = new Studants();
+            Students students = new Students();
 
             string option = "";
 
@@ -21,7 +21,7 @@ namespace Rainbow_Schools
                 switch (option)
                 {
                     case "1":
-                        studants.ShowStudants();
+                        students.ShowStudants();
                         break;
                     case "0":
                         return;

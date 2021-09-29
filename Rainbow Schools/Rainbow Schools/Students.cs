@@ -7,20 +7,21 @@ using System.Threading.Tasks;
 
 namespace Rainbow_Schools
 {
-    class Studants
+    class Students
     {
-        private static string FILENAME = "\\studants.txt";
+        private static string FILENAME = "..\\..\\..\\studants.txt";
         private static string path;
-        private static Studant[] studants;
+        private static Student[] students;
 
-        public Studants()
+        public Students()
         {
-            Console.WriteLine("criei a classe studants");
             path = Directory.GetCurrentDirectory();
             path += FILENAME;
 
             ReadFile();
-            //SortStudantsQS(0, studants.Count() - 1);
+            if (students.Count() >= 1)
+                InsertionSort();
+                //SortStudantsQS(0, students.Count() - 1);
         }
 
         private static void ReadFile()
@@ -30,13 +31,13 @@ namespace Rainbow_Schools
                 if (File.Exists(path))
                 {
                     string[] lines = System.IO.File.ReadAllLines(path);
-                    studants = new Studant[lines.Count()];
+                    students = new Student[lines.Count()];
 
                     int i = 0;
                     foreach (string line in lines)
                     {
                         string[] temp = line.Split(',');
-                        studants[i] = (new Studant(temp[0], temp[1].Trim()));
+                        students[i] = (new Student(temp[0], temp[1].Trim()));
                         i++;
                     }
                 }
@@ -55,12 +56,36 @@ namespace Rainbow_Schools
             }
         }
 
+        private void InsertionSort()
+        {
+
+            int n = students.Count(), i, j, flag;
+            Student val;
+            for (i = 1; i < n; i++)
+            {
+                val = students[i];
+                flag = 0;
+                for (j = i - 1; j >= 0 && flag != 1;)
+                {
+                    if (val.Name.CompareTo(students[j].Name) < 0)
+                    {
+                        students[j + 1] = students[j];
+                        j--;
+                        students[j + 1] = val;
+                    }
+                    else flag = 1;
+                }
+
+
+            }
+        }
+
         private void SortStudantsQS(int left, int right)
         {
             int pivotPos;
             if (left < right)
             {
-                pivotPos = partition(left, right);
+                pivotPos = partitionQS(left, right);
                 if (pivotPos > 1)
                 {
                     
@@ -73,24 +98,35 @@ namespace Rainbow_Schools
             }
         }
 
-        private int partition(int left, int right)
+        private int partitionQS(int left, int right)
         {
             int pivotPos = left;
             while (true)
             {
-                while (studants[left].Name.CompareTo(studants[pivotPos].Name) < 0)
+                if (students[right].Name.CompareTo(students[pivotPos].Name) == 0)
+                {
+                    while (students[left].Class.CompareTo(students[pivotPos].Class) < 0)
+                    {
+                        left++;
+                    }
+                    while (students[right].Class.CompareTo(students[pivotPos].Class) > 0)
+                    {
+                        right--;
+                    }
+                }
+                while (students[left].Name.CompareTo(students[pivotPos].Name) < 0)
                 {
                     left++;
                 }
-                while (studants[right].Name.CompareTo(studants[pivotPos].Name) > 0)
+                while (students[right].Name.CompareTo(students[pivotPos].Name) > 0)
                 {
                     right--;
                 }
                 if (left < right)
                 {
-                    Studant temp = studants[right];
-                    studants[right] = studants[left];
-                    studants[left] = temp;
+                    Student temp = students[right];
+                    students[right] = students[left];
+                    students[left] = temp;
                 }
                 else
                 {
@@ -100,13 +136,20 @@ namespace Rainbow_Schools
         }
 
 
+
         public void ShowStudants()
         {
-            foreach(Studant s in studants)
+            foreach (Student s in students)
             {
                 Console.WriteLine(s.ToString());
             }
         }
+
+        public void SearchByName(string name)
+        {
+
+        }
+
 
     }
 }

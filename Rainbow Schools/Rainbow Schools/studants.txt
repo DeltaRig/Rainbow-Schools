@@ -1,0 +1,16 @@
+Zelia, Administration
+Daniela, Math
+Rodrigo, Math
+Diego, Science
+Priscila, Yoga
+Gustavo, Math
+Isabel, Innovate
+Leticia, Administration
+Carlos, Fisic
+Dee, Turism
+Priscila, Fisic
+Gustavo, Adm
+Isabel, Creation
+Leticia, Literature
+Carlos, Math
+Dee, Innovate
