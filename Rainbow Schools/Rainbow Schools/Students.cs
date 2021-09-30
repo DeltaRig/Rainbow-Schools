@@ -80,6 +80,9 @@ namespace Rainbow_Schools
             }
         }
 
+        /**
+         * Quick Sort algorithm adapted to receive names from students, is not being used as it does not correctly order repeated names.
+         */
         private void SortStudantsQS(int left, int right)
         {
             int pivotPos;
@@ -145,8 +148,54 @@ namespace Rainbow_Schools
             }
         }
 
-        public void SearchByName(string name)
+        public void SearchByName(string search)
         {
+            int minNum = 0;
+            int maxNum = students.Length - 1;
+          
+            int foundElem = -1;
+
+            while (minNum <= maxNum && foundElem == -1)
+            {
+                int mid = (minNum + maxNum) / 2;
+                if (search.Equals(students[mid].Name))
+                {
+                    foundElem = mid;
+                    break;
+                }
+                else if (search.CompareTo(students[mid].Name) < 0)
+                {
+                    maxNum = mid - 1;
+                }
+                else
+                {
+                    minNum = mid + 1;
+                }
+            }
+
+            if (foundElem > -1)
+            {
+                Console.WriteLine("\nFound");
+
+                int pivot = foundElem - 1;
+                // if this student are in more then one class
+                while (search.Equals(students[pivot].Name))
+                {
+                    Console.WriteLine(students[pivot].ToString() + "\t at line " + pivot + 1);
+                    pivot--;
+                }
+                Console.WriteLine(students[foundElem].ToString() + "\t at line " + foundElem + 1);
+                pivot = foundElem + 1;
+                while (search.Equals(students[pivot].Name))
+                {
+                    Console.WriteLine(students[pivot].ToString() + "\t at line " + pivot + 1);
+                    pivot++;
+                }
+
+            } else
+            {
+                Console.WriteLine("Don't found any student with this name");
+            }
 
         }
 
