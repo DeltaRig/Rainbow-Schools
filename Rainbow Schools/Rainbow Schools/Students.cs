@@ -80,66 +80,6 @@ namespace Rainbow_Schools
             }
         }
 
-        /**
-         * Quick Sort algorithm adapted to receive names from students, is not being used as it does not correctly order repeated names.
-         */
-        private void SortStudantsQS(int left, int right)
-        {
-            int pivotPos;
-            if (left < right)
-            {
-                pivotPos = partitionQS(left, right);
-                if (pivotPos > 1)
-                {
-                    
-                    SortStudantsQS(left, pivotPos - 1);
-                }
-                if (pivotPos + 1 < right)
-                {
-                    SortStudantsQS(pivotPos + 1, right);
-                }
-            }
-        }
-
-        private int partitionQS(int left, int right)
-        {
-            int pivotPos = left;
-            while (true)
-            {
-                if (students[right].Name.CompareTo(students[pivotPos].Name) == 0)
-                {
-                    while (students[left].Class.CompareTo(students[pivotPos].Class) < 0)
-                    {
-                        left++;
-                    }
-                    while (students[right].Class.CompareTo(students[pivotPos].Class) > 0)
-                    {
-                        right--;
-                    }
-                }
-                while (students[left].Name.CompareTo(students[pivotPos].Name) < 0)
-                {
-                    left++;
-                }
-                while (students[right].Name.CompareTo(students[pivotPos].Name) > 0)
-                {
-                    right--;
-                }
-                if (left < right)
-                {
-                    Student temp = students[right];
-                    students[right] = students[left];
-                    students[left] = temp;
-                }
-                else
-                {
-                    return right;
-                }
-            }
-        }
-
-
-
         public void ShowStudants()
         {
             foreach (Student s in students)
