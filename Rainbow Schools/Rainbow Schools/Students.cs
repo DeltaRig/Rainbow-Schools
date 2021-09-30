@@ -158,7 +158,7 @@ namespace Rainbow_Schools
             while (minNum <= maxNum && foundElem == -1)
             {
                 int mid = (minNum + maxNum) / 2;
-                if (search.Equals(students[mid].Name))
+                if (search.Equals(students[mid].Name, StringComparison.CurrentCultureIgnoreCase))
                 {
                     foundElem = mid;
                     break;
@@ -179,16 +179,16 @@ namespace Rainbow_Schools
 
                 int pivot = foundElem - 1;
                 // if this student are in more then one class
-                while (search.Equals(students[pivot].Name))
+                while (search.Equals(students[pivot].Name, StringComparison.CurrentCultureIgnoreCase))
                 {
-                    Console.WriteLine(students[pivot].ToString() + "\t at line " + pivot + 1);
+                    Console.WriteLine(students[pivot].ToString() + "\t at line " + (pivot + 1));
                     pivot--;
                 }
-                Console.WriteLine(students[foundElem].ToString() + "\t at line " + foundElem + 1);
+                Console.WriteLine(students[foundElem].ToString() + "\t at line " + (foundElem + 1));
                 pivot = foundElem + 1;
-                while (search.Equals(students[pivot].Name))
+                while (search.Equals(students[pivot].Name, StringComparison.CurrentCultureIgnoreCase))
                 {
-                    Console.WriteLine(students[pivot].ToString() + "\t at line " + pivot + 1);
+                    Console.WriteLine(students[pivot].ToString() + "\t at line " + (pivot + 1));
                     pivot++;
                 }
 

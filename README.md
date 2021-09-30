@@ -11,7 +11,9 @@ A program that will retrieve student data from a text file, display it sorted, a
 
 ### This program: 
 
-Have a simple menu, with two options, retrieve student data from a text file and exit. If the user choose the option 1, will appear what have in the file. If the user write something different from ‘1’ and ‘0’, will appear that is a invalid option. And if the user write ‘0’ will close the program. 
+Have a simple menu, with three options, retrieve student data from a text file, search a student by name and exit. If the user choose the option 1, will appear what have in the file. When the user choose the option 2, will ask what studant's name that he want search and after that user sent the name will show the student information of that this user didn't found. If the user write something different from ‘1’, '2' or ‘0’, will appear that is a invalid option. And if the user write ‘0’ will close the program. 
+
+In the studants list could be the same studant in more then one class, and will appear in the search all studant's classes. In the sort is user Insertion Sort and in search is used Binary Search algorithm.
 
 ### Background of the problem statement:
 
