@@ -10,11 +10,13 @@ namespace Rainbow_Schools
     {
         private string _name;
         private string _class;
+        private string _section;
 
-        public Student(string n, string c)
+        public Student(string n, string c, string s)
         {
             this._name = n;
             this._class = c;
+            this._section = s;
         }
 
         public string Name => _name;
@@ -23,7 +25,7 @@ namespace Rainbow_Schools
         override
         public string ToString()
         {
-            return _name + "\t|\t" + _class;
+            return _name + "\t|\t" + _class + "\t|\t" + _section;
         }
     }
 }
