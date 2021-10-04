@@ -19,30 +19,25 @@ namespace Rainbow_Schools
 
         public ManagerData()
         {
-            path = "..\\..\\..\\" + Directory.GetCurrentDirectory();
-            STUDENTFILE = "studants.txt";
+            path = Directory.GetCurrentDirectory() + "..\\..\\..\\";
+            STUDENTFILE = "students.txt";
             TEACHERFILE = "teachers.txt";
             SUBJECTFILE = "subjects.txt";
 
             ReadFiles();
             if (students.Count() >= 1)
-                InsertionSort();
+                InsertionSort(students);
+            if (teachers.Count() >= 1)
+                InsertionSort(teachers);
         }
 
         private static void ReadFiles()
         {
             try
             {
-                if (File.Exists(path))
-                {
-                    ReadPersonFile(students, STUDENTFILE);
-                    ReadPersonFile(teachers, TEACHERFILE);
-                    ReadSubjectFile();
-                }
-                else
-                {
-                    Console.WriteLine("Some file don't find.");
-                }
+                students = ReadPersonFile(STUDENTFILE);
+                teachers = ReadPersonFile(TEACHERFILE);
+                subjects = ReadSubjectFile();
             }
             catch
             {
@@ -50,61 +45,78 @@ namespace Rainbow_Schools
             }
         }
 
-        private static void ReadPersonFile(Person[] persons, string fileName)
+        private static Person[] ReadPersonFile(string fileName)
         {
-            string[] lines = System.IO.File.ReadAllLines(path + fileName);
-            persons = new Person[lines.Count()];
-
-            int i = 0;
-            foreach (string line in lines)
+            Person[] persons = null;
+            if (File.Exists(path + fileName))
             {
-                string[] temp = line.Split(',');
-                persons[i] = (new Person(temp[0], temp[1].Trim(), temp[2].Trim()));
-                i++;
+                string[] lines = System.IO.File.ReadAllLines(path + fileName);
+                persons = new Person[lines.Count()];
+
+                int i = 0;
+                foreach (string line in lines)
+                {
+                    string[] temp = line.Split(',');
+                    persons[i] = (new Person(temp[0], temp[1].Trim(), temp[2].Trim()));
+                    i++;
+                }
+            } else
+            {
+                Console.WriteLine("Some file don't find.");
             }
+
+            return persons;
         }
 
-        private static void ReadSubjectFile()
+        private static Subject[] ReadSubjectFile()
         {
-            string[] lines = System.IO.File.ReadAllLines(path + SUBJECTFILE);
-            subjects = new Subject[lines.Count()];
-
-            int i = 0;
-            foreach (string line in lines)
+            Subject[] sub = null;
+            if (File.Exists(path + SUBJECTFILE))
             {
-                string[] temp = line.Split(',');
-                subjects[i] = (new Subject(temp[0], temp[1].Trim(), temp[2].Trim()));
-                i++;
+                string[] lines = System.IO.File.ReadAllLines(path + SUBJECTFILE);
+                subjects = new Subject[lines.Count()];
+
+                int i = 0;
+                foreach (string line in lines)
+                {
+                    string[] temp = line.Split(',');
+                    sub[i] = (new Subject(temp[0], temp[1].Trim(), temp[2].Trim()));
+                    i++;
+                }
             }
+            else
+            {
+                Console.WriteLine("Some file don't find.");
+            }
+            return sub;
         }
 
-        private void InsertionSort()
+        // sort by name
+        private void InsertionSort(Person[] persons)
         {
 
-            int n = students.Count(), i, j, flag;
+            int n = persons.Count(), i, j, flag;
             Person val;
             for (i = 1; i < n; i++)
             {
-                val = students[i];
+                val = persons[i];
                 flag = 0;
                 for (j = i - 1; j >= 0 && flag != 1;)
                 {
-                    if (val.Name.CompareTo(students[j].Name) < 0)
+                    if (val.Name.CompareTo(persons[j].Name) < 0)
                     {
-                        students[j + 1] = students[j];
+                        persons[j + 1] = persons[j];
                         j--;
-                        students[j + 1] = val;
+                        persons[j + 1] = val;
                     }
                     else flag = 1;
                 }
-
-
             }
         }
 
-        public void ShowStudants()
+        public void ShowPerson()
         {
-            foreach (Student s in students)
+            foreach (Person s in students)
             {
                 Console.WriteLine(s.ToString());
             }
@@ -147,17 +159,17 @@ namespace Rainbow_Schools
                 while (pivot >= minNum)
                 {
                     if (search.Equals(students[pivot].Name, StringComparison.CurrentCultureIgnoreCase))
-                        Console.WriteLine(students[pivot].ToString() + "\t at line " + (pivot + 1));
+                        Console.WriteLine(students[pivot].ToString() + "\t at position " + (pivot + 1));
                     else
                         break;
                     pivot--;
                 }
-                Console.WriteLine(students[foundElem].ToString() + "\t at line " + (foundElem + 1));
+                Console.WriteLine(students[foundElem].ToString() + "\t at position " + (foundElem + 1));
                 pivot = foundElem + 1;
                 while (pivot <= maxNum)
                 {
                     if (search.Equals(students[pivot].Name, StringComparison.CurrentCultureIgnoreCase))
-                        Console.WriteLine(students[pivot].ToString() + "\t at line " + (pivot + 1));
+                        Console.WriteLine(students[pivot].ToString() + "\t at position " + (pivot + 1));
                     else
                         break;
                     pivot++;
