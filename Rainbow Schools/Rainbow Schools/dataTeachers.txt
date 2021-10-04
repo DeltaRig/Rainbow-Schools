@@ -1,0 +1,21 @@
+Bernardo, Desing Patters, SOLID
+Bernardo, Desing Patters, OOP
+Giraffa, Programming, Fundamentals
+Isabel, Data Structures, Algorithms and Data Structures I
+Isabel, Data Structures, Algorithms and Data Structures II
+Joao Batista, Data Structures, Algorithms and Data Structures I
+Joao Batista, Data Structures, Algorithms and Data Structures II
+Joao Batista, Data Structures, Optimization
+Aruda, Database, Fundamentals Database
+Aruda, Database, Database II
+Aruda, Database, Infrastructure for data management
+Cardona, Math, Calculus I
+Iuri, Math, Calculus I
+Karina, Math, Calculus I
+Cardona, Math, Calculus II
+Iuri, Math, Calculus II
+Cardona, Math, Algebra
+Iuri, Math, Algebra
+Kameko, Math, Probability and statistics
+Joao Batista, Math, Numerical methods
+Mafalda, Math, Numerical methods

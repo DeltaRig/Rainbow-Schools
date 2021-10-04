@@ -20,9 +20,9 @@ namespace Rainbow_Schools
         public ManagerData()
         {
             path = Directory.GetCurrentDirectory() + "..\\..\\..\\";
-            STUDENTFILE = "students.txt";
-            TEACHERFILE = "teachers.txt";
-            SUBJECTFILE = "subjects.txt";
+            STUDENTFILE = "dataStudents.txt";
+            TEACHERFILE = "dataTeachers.txt";
+            SUBJECTFILE = "dataSubjects.txt";
 
             ReadFiles();
             if (students.Count() >= 1)
@@ -86,7 +86,7 @@ namespace Rainbow_Schools
             }
             else
             {
-                Console.WriteLine("Some file don't find.");
+                Console.WriteLine("Subjects file don't find.");
             }
             return sub;
         }
@@ -114,9 +114,17 @@ namespace Rainbow_Schools
             }
         }
 
-        public void ShowPerson()
+        public void ShowStudants()
         {
             foreach (Person s in students)
+            {
+                Console.WriteLine(s.ToString());
+            }
+        }
+
+        public void ShowTeachers()
+        {
+            foreach (Person s in teachers)
             {
                 Console.WriteLine(s.ToString());
             }

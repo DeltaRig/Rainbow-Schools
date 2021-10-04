@@ -21,14 +21,15 @@ namespace Rainbow_Schools
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\n1. Retrieve Student Data from a Text File\n" +
-                              "2. Search by name\n" +
+                              "2. Search student by name\n" +
+                              "3. Retrieve teacher Data from a Text File\n" +
                               "0. Exit");
             Console.ForegroundColor = ConsoleColor.White;
             option = Console.ReadLine();
             switch (option)
             {
                 case "1":
-                    data.ShowPerson();
+                    data.ShowStudants();
                     break;
                 case "2":
                     Console.ForegroundColor = ConsoleColor.Yellow;
@@ -36,6 +37,9 @@ namespace Rainbow_Schools
                     Console.ForegroundColor = ConsoleColor.White;
                     string name = Console.ReadLine();
                     data.SearchByName(name);
+                    break;
+                case "3":
+                    data.ShowTeachers();
                     break;
                 case "0":
                     break;
