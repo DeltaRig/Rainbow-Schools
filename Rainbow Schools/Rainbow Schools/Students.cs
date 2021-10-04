@@ -21,7 +21,6 @@ namespace Rainbow_Schools
             ReadFile();
             if (students.Count() >= 1)
                 InsertionSort();
-                //SortStudantsQS(0, students.Count() - 1);
         }
 
         private static void ReadFile()
@@ -37,7 +36,7 @@ namespace Rainbow_Schools
                     foreach (string line in lines)
                     {
                         string[] temp = line.Split(',');
-                        students[i] = (new Student(temp[0], temp[1].Trim()));
+                        students[i] = (new Student(temp[0], temp[1].Trim(), temp[2].Trim()));
                         i++;
                     }
                 }
@@ -117,18 +116,27 @@ namespace Rainbow_Schools
             {
                 Console.WriteLine("\nFound");
 
+                minNum = 0;
+                maxNum = students.Length - 1;
+
                 int pivot = foundElem - 1;
                 // if this student are in more then one class
-                while (search.Equals(students[pivot].Name, StringComparison.CurrentCultureIgnoreCase))
+                while (pivot >= minNum)
                 {
-                    Console.WriteLine(students[pivot].ToString() + "\t at line " + (pivot + 1));
+                    if (search.Equals(students[pivot].Name, StringComparison.CurrentCultureIgnoreCase))
+                        Console.WriteLine(students[pivot].ToString() + "\t at line " + (pivot + 1));
+                    else
+                        break;
                     pivot--;
                 }
                 Console.WriteLine(students[foundElem].ToString() + "\t at line " + (foundElem + 1));
                 pivot = foundElem + 1;
-                while (search.Equals(students[pivot].Name, StringComparison.CurrentCultureIgnoreCase))
+                while (pivot <= maxNum)
                 {
-                    Console.WriteLine(students[pivot].ToString() + "\t at line " + (pivot + 1));
+                    if (search.Equals(students[pivot].Name, StringComparison.CurrentCultureIgnoreCase))
+                        Console.WriteLine(students[pivot].ToString() + "\t at line " + (pivot + 1));
+                    else
+                        break;
                     pivot++;
                 }
 

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Rainbow_Schools
 {
-    class Student : Person // derived class (child)
+    class Teacher : Person // derived class (child)
     {
-        public Student(string n, string c, string s) : base(n,c,s)
-        {            
+        public Teacher(string n, string c, string s) : base(n, c, s)
+        {
         }
     }
 }
