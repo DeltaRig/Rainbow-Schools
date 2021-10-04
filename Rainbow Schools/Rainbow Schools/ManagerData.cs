@@ -7,46 +7,41 @@ using System.Threading.Tasks;
 
 namespace Rainbow_Schools
 {
-    class Students
+    class ManagerData
     {
-        private static string FILENAME = "..\\..\\..\\studants.txt";
+        private static string STUDENTFILE;
+        private static string TEACHERFILE;
+        private static string SUBJECTFILE;
         private static string path;
-        private static Student[] students;
+        private static Person[] students;
+        private static Person[] teachers;
+        private static Subject[] subjects;
 
-        public Students()
+        public ManagerData()
         {
-            path = Directory.GetCurrentDirectory();
-            path += FILENAME;
+            path = "..\\..\\..\\" + Directory.GetCurrentDirectory();
+            STUDENTFILE = "studants.txt";
+            TEACHERFILE = "teachers.txt";
+            SUBJECTFILE = "subjects.txt";
 
-            ReadFile();
+            ReadFiles();
             if (students.Count() >= 1)
                 InsertionSort();
         }
 
-        private static void ReadFile()
+        private static void ReadFiles()
         {
             try
             {
                 if (File.Exists(path))
                 {
-                    string[] lines = System.IO.File.ReadAllLines(path);
-                    students = new Student[lines.Count()];
-
-                    int i = 0;
-                    foreach (string line in lines)
-                    {
-                        string[] temp = line.Split(',');
-                        students[i] = (new Student(temp[0], temp[1].Trim(), temp[2].Trim()));
-                        i++;
-                    }
+                    ReadPersonFile(students, STUDENTFILE);
+                    ReadPersonFile(teachers, TEACHERFILE);
+                    ReadSubjectFile();
                 }
                 else
                 {
-                    Console.WriteLine("File not found, should be in the same folder that the app with the name studants.txt");
-                    Console.WriteLine("Don't delete 'studants.txt' file");
-                    Console.WriteLine("Creating the file empty, the text will be updated with data offline, using a notepad or text editor.");
-
-                    System.IO.File.Create(path);
+                    Console.WriteLine("Some file don't find.");
                 }
             }
             catch
@@ -55,11 +50,39 @@ namespace Rainbow_Schools
             }
         }
 
+        private static void ReadPersonFile(Person[] persons, string fileName)
+        {
+            string[] lines = System.IO.File.ReadAllLines(path + fileName);
+            persons = new Person[lines.Count()];
+
+            int i = 0;
+            foreach (string line in lines)
+            {
+                string[] temp = line.Split(',');
+                persons[i] = (new Person(temp[0], temp[1].Trim(), temp[2].Trim()));
+                i++;
+            }
+        }
+
+        private static void ReadSubjectFile()
+        {
+            string[] lines = System.IO.File.ReadAllLines(path + SUBJECTFILE);
+            subjects = new Subject[lines.Count()];
+
+            int i = 0;
+            foreach (string line in lines)
+            {
+                string[] temp = line.Split(',');
+                subjects[i] = (new Subject(temp[0], temp[1].Trim(), temp[2].Trim()));
+                i++;
+            }
+        }
+
         private void InsertionSort()
         {
 
             int n = students.Count(), i, j, flag;
-            Student val;
+            Person val;
             for (i = 1; i < n; i++)
             {
                 val = students[i];

@@ -7,7 +7,7 @@ namespace Rainbow_Schools
 
         static void Main(string[] args)
         {
-            Students students = new Students();
+            ManagerData students = new ManagerData();
 
             string option = "";
             string name = "";
