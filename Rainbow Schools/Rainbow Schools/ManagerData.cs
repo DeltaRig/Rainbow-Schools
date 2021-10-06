@@ -19,19 +19,28 @@ namespace Rainbow_Schools
 
         public ManagerData()
         {
+            
+        }
+
+        public Boolean Data()
+        {
             path = Directory.GetCurrentDirectory() + "..\\..\\..\\";
             STUDENTFILE = "dataStudents.txt";
             TEACHERFILE = "dataTeachers.txt";
             SUBJECTFILE = "dataSubjects.txt";
 
-            ReadFiles();
-            if (students.Count() >= 1)
-                InsertionSort(students);
-            if (teachers.Count() >= 1)
-                InsertionSort(teachers);
+            Boolean result = ReadFiles();
+            if (result)
+            {
+                if (students.Count() >= 1)
+                    InsertionSort(students);
+                if (teachers.Count() >= 1)
+                    InsertionSort(teachers);
+            }
+            return result;
         }
 
-        private static void ReadFiles()
+        private static Boolean ReadFiles()
         {
             try
             {
@@ -42,7 +51,15 @@ namespace Rainbow_Schools
             catch
             {
                 Console.WriteLine("Don't found the data");
+                return false;
             }
+            if (students == null)
+                return false;
+            if (teachers == null)
+                return false;
+            if (subjects == null)
+                return false;
+            return true;
         }
 
         private static Person[] ReadPersonFile(string fileName)

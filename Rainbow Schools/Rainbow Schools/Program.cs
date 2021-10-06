@@ -10,12 +10,21 @@ namespace Rainbow_Schools
             
             Menu menu = new Menu();
 
-            string option = "";
-
-            do
+            if (menu.CanOpenMenu())
             {
-                option = menu.ShowMenu();
-            } while (!option.Equals("0"));
+                string option = "";
+
+                do
+                {
+                    option = menu.ShowMenu();
+                } while (!option.Equals("0"));
+            } else
+            {
+                Console.WriteLine("Something wrong with datas, this program will close in 5 seconds");
+                System.Threading.Thread.Sleep(5000);
+            }
+
+            
 
         }
 

@@ -17,6 +17,11 @@ namespace Rainbow_Schools
             data = new ManagerData();
         }
 
+        public Boolean CanOpenMenu()
+        {
+            return data.Data();
+        }
+
         public string ShowMenu()
         {
             string option = "";
