@@ -26,6 +26,7 @@ namespace Rainbow_Schools
                                "2. Retrieve teacher Data from a Text File\n" +
                               "3. Search student by name\n" +
                               "4. See students in a class\n"  +
+                              "5. Subjects taught by a teacher\n" + 
                               "0. Exit");
             Console.ForegroundColor = ConsoleColor.White;
             option = Console.ReadLine();
@@ -51,6 +52,13 @@ namespace Rainbow_Schools
                     string classe = Console.ReadLine();
                     PrintList(data.getStudantsByClass(classe), "No one studants in this class");
                     break;
+                case "5":
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("\nWhat is the teacher's name?");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    string teacher = Console.ReadLine();
+                    PrintList(data.getSubjectsByTeacher(teacher), "No one subjects with this teacher");
+                    break;
                 case "0":
                     break;
                 default:
@@ -69,6 +77,18 @@ namespace Rainbow_Schools
                 Console.WriteLine(i);
             }
             if(list.Count() == 0)
+            {
+                Console.WriteLine(noData);
+            }
+        }
+
+        private void PrintList(List<Subject> list, String noData)
+        {
+            foreach (Subject i in list)
+            {
+                Console.WriteLine(i);
+            }
+            if (list.Count() == 0)
             {
                 Console.WriteLine(noData);
             }

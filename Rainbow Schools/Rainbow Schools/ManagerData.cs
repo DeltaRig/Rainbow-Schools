@@ -74,12 +74,14 @@ namespace Rainbow_Schools
             if (File.Exists(path + SUBJECTFILE))
             {
                 string[] lines = System.IO.File.ReadAllLines(path + SUBJECTFILE);
-                subjects = new Subject[lines.Count()];
+                sub = new Subject[lines.Count()];
 
                 int i = 0;
+                string[] temp;
+                Teacher t;
                 foreach (string line in lines)
                 {
-                    string[] temp = line.Split(',');
+                    temp = line.Split(',');
                     sub[i] = (new Subject(temp[0], temp[1].Trim(), temp[2].Trim()));
                     i++;
                 }
@@ -202,6 +204,18 @@ namespace Rainbow_Schools
             return studentInClass;
         }
 
+        public List<Subject> getSubjectsByTeacher(string teacher)
+        {
+            List<Subject> teachersSubjects = new List<Subject>();
+
+            foreach (Subject s in subjects)
+            {
+                if (s.Teacher.Equals(teacher, StringComparison.CurrentCultureIgnoreCase))
+                    teachersSubjects.Add(s);
+            }
+
+            return teachersSubjects;
+        }
 
     }
 }
