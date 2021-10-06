@@ -124,9 +124,9 @@ namespace Rainbow_Schools
 
         public void ShowTeachers()
         {
-            foreach (Person s in teachers)
+            foreach (Person t in teachers)
             {
-                Console.WriteLine(s.ToString());
+                Console.WriteLine(t.ToString());
             }
         }
 
@@ -188,6 +188,18 @@ namespace Rainbow_Schools
                 Console.WriteLine("Don't found any student with this name");
             }
 
+        }
+
+        public List<Person> getStudantsByClass(string classe) {
+            List<Person> studentInClass = new List<Person>();
+
+            foreach(Person s in students)
+            {
+                if(s.Class.Equals(classe, StringComparison.CurrentCultureIgnoreCase))
+                    studentInClass.Add(s);
+            }
+
+            return studentInClass;
         }
 
 
