@@ -149,8 +149,10 @@ namespace Rainbow_Schools
             }
         }
 
-        public void SearchByName(string search)
+        public List<string> SearchByName(string search)
         {
+            List<string> searchs = new List<string>();
+
             int minNum = 0;
             int maxNum = students.Length - 1;
           
@@ -186,27 +188,24 @@ namespace Rainbow_Schools
                 while (pivot >= minNum)
                 {
                     if (search.Equals(students[pivot].Name, StringComparison.CurrentCultureIgnoreCase))
-                        Console.WriteLine(students[pivot].ToString() + "\t at position " + (pivot + 1));
+                        searchs.Add(students[pivot].ToString() + "\t at position " + (pivot + 1));
                     else
                         break;
                     pivot--;
                 }
-                Console.WriteLine(students[foundElem].ToString() + "\t at position " + (foundElem + 1));
+                searchs.Add(students[foundElem].ToString() + "\t at position " + (foundElem + 1));
                 pivot = foundElem + 1;
                 while (pivot <= maxNum)
                 {
                     if (search.Equals(students[pivot].Name, StringComparison.CurrentCultureIgnoreCase))
-                        Console.WriteLine(students[pivot].ToString() + "\t at position " + (pivot + 1));
+                        searchs.Add(students[pivot].ToString() + "\t at position " + (pivot + 1));
                     else
                         break;
                     pivot++;
                 }
 
-            } else
-            {
-                Console.WriteLine("Don't found any student with this name");
             }
-
+            return searchs;
         }
 
         public List<Person> getStudantsByClass(string classe) {

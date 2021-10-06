@@ -48,7 +48,7 @@ namespace Rainbow_Schools
                     Console.WriteLine("\nWhat is the name for search?");
                     Console.ForegroundColor = ConsoleColor.White;
                     string name = Console.ReadLine();
-                    data.SearchByName(name);
+                    PrintList(data.SearchByName(name), "No one student with this name");
                     break;
                 case "4":
                     Console.ForegroundColor = ConsoleColor.Yellow;
@@ -90,6 +90,18 @@ namespace Rainbow_Schools
         private void PrintList(List<Subject> list, String noData)
         {
             foreach (Subject i in list)
+            {
+                Console.WriteLine(i);
+            }
+            if (list.Count() == 0)
+            {
+                Console.WriteLine(noData);
+            }
+        }
+
+        private void PrintList(List<string> list, String noData)
+        {
+            foreach (string i in list)
             {
                 Console.WriteLine(i);
             }
