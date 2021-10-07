@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Rainbow_Schools
 {
+    /// <summary>
+    /// Class <c>Subject</c> is to store the subject data.
+    /// </summary>
     class Subject
     {
         private string _name;

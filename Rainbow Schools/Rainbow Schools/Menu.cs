@@ -9,6 +9,9 @@ using Rainbow_Schools.Interfaces;
 
 namespace Rainbow_Schools
 {
+    /// <summary>
+    /// Class <c>Menu</c> is a class to show the menu to user, to interact with ManagerData and show what the user choose in menu.
+    /// </summary>
     class Menu : IMenu
     {
         private ManagerData data;

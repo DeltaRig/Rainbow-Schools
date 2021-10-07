@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Rainbow_Schools
 {
-    class Person // base class (parent) 
+    /// <summary>
+    /// Class <c>Person</c> is base class (parent) that have all that person needs in this program.
+    /// </summary>
+    class Person
     {
         private string _name;
         private string _class;
