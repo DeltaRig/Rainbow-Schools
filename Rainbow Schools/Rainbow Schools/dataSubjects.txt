@@ -1,3 +1,3 @@
-Desing Patters focus in SOLID, 4014-4, Bernardo, Desing Patters, SOLID
-Desing Patters focus in OOP, 4015-4, Bernardo, Desing Patters, OOP
-Programming's Funtamentals, 4016-4, Giraffa, Programming, Fundamentals
+Desing Patters focus in SOLID, 4014-4, Bernardo
+Desing Patters focus in OOP, 4015-4, Bernardo
+Programming's Funtamentals, 4016-4, Giraffa

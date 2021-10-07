@@ -4,10 +4,14 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Rainbow_Schools.Interfaces;
 
 namespace Rainbow_Schools
 {
-    class ManagerData
+    /// <summary>
+    /// Class <c>ManagerData</c> store data about classes, which contain students, subjects, and teachers. 
+    /// </summary>
+    class ManagerData : IManagerData
     {
         private static string STUDENTFILE;
         private static string TEACHERFILE;
@@ -64,17 +68,17 @@ namespace Rainbow_Schools
 
         private static Person[] ReadPersonFile(string fileName)
         {
-            Person[] persons = null;
+            Person[] people = null;
             if (File.Exists(path + fileName))
             {
                 string[] lines = System.IO.File.ReadAllLines(path + fileName);
-                persons = new Person[lines.Count()];
+                people = new Person[lines.Count()];
 
                 int i = 0;
                 foreach (string line in lines)
                 {
                     string[] temp = line.Split(',');
-                    persons[i] = (new Person(temp[0], temp[1].Trim(), temp[2].Trim()));
+                    people[i] = (new Person(temp[0], temp[1].Trim(), temp[2].Trim()));
                     i++;
                 }
             } else
@@ -82,7 +86,7 @@ namespace Rainbow_Schools
                 Console.WriteLine("Some file don't find.");
             }
 
-            return persons;
+            return people;
         }
 
         private static Subject[] ReadSubjectFile()
@@ -111,22 +115,22 @@ namespace Rainbow_Schools
         }
 
         // sort by name
-        private void InsertionSort(Person[] persons)
+        private void InsertionSort(Person[] people)
         {
 
-            int n = persons.Count(), i, j, flag;
+            int n = people.Count(), i, j, flag;
             Person val;
             for (i = 1; i < n; i++)
             {
-                val = persons[i];
+                val = people[i];
                 flag = 0;
                 for (j = i - 1; j >= 0 && flag != 1;)
                 {
-                    if (val.Name.CompareTo(persons[j].Name) < 0)
+                    if (val.Name.CompareTo(people[j].Name) < 0)
                     {
-                        persons[j + 1] = persons[j];
+                        people[j + 1] = people[j];
                         j--;
-                        persons[j + 1] = val;
+                        people[j + 1] = val;
                     }
                     else flag = 1;
                 }
@@ -208,7 +212,7 @@ namespace Rainbow_Schools
             return searchs;
         }
 
-        public List<Person> getStudantsByClass(string classe) {
+        public List<Person> GetStudantsByClass(string classe) {
             List<Person> studentInClass = new List<Person>();
 
             foreach(Person s in students)
@@ -220,7 +224,7 @@ namespace Rainbow_Schools
             return studentInClass;
         }
 
-        public List<Subject> getSubjectsByTeacher(string teacher)
+        public List<Subject> GetSubjectsByTeacher(string teacher)
         {
             List<Subject> teachersSubjects = new List<Subject>();
 
