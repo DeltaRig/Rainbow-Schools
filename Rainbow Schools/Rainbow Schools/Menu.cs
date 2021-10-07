@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
 using System.IO;
+using Rainbow_Schools.Interfaces;
 
 namespace Rainbow_Schools
 {
-    class Menu
+    class Menu : IMenu
     {
         private ManagerData data;
 
@@ -24,8 +25,6 @@ namespace Rainbow_Schools
 
         public string ShowMenu()
         {
-            string option = "";
-
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\n1. Retrieve Student Data from a Text File\n" +
                                "2. Retrieve teacher Data from a Text File\n" +
@@ -34,7 +33,7 @@ namespace Rainbow_Schools
                               "5. Subjects taught by a teacher\n" + 
                               "0. Exit");
             Console.ForegroundColor = ConsoleColor.White;
-            option = Console.ReadLine();
+            string option = Console.ReadLine();
             switch (option)
             {
                 case "1":
@@ -55,14 +54,14 @@ namespace Rainbow_Schools
                     Console.WriteLine("\nWhat is the class's name?");
                     Console.ForegroundColor = ConsoleColor.White;
                     string classe = Console.ReadLine();
-                    PrintList(data.getStudantsByClass(classe), "No one studants in this class");
+                    PrintList(data.GetStudantsByClass(classe), "No one studants in this class");
                     break;
                 case "5":
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("\nWhat is the teacher's name?");
                     Console.ForegroundColor = ConsoleColor.White;
                     string teacher = Console.ReadLine();
-                    PrintList(data.getSubjectsByTeacher(teacher), "No one subjects with this teacher");
+                    PrintList(data.GetSubjectsByTeacher(teacher), "No one subjects with this teacher");
                     break;
                 case "0":
                     break;

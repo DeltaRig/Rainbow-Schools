@@ -66,6 +66,11 @@ namespace Rainbow_Schools
             return true;
         }
 
+        /// <summary>
+        /// Method <c>ReadPersonFile</c> reads the file of any people, students or teachers.
+        /// </summary>
+        /// <param name="fileName">The file's name of have the list of people to convert to cache, in the file the attributes needs be separeted by ','</param>
+        /// <returns>A list of people that was in the file, if returns null this means that can't be read the file</returns>
         private static Person[] ReadPersonFile(string fileName)
         {
             Person[] people = null;
@@ -89,6 +94,10 @@ namespace Rainbow_Schools
             return people;
         }
 
+        /// <summary>
+        /// Method <c>ReadSubjectFile</c> reads the file of subjects.
+        /// </summary>
+        /// <returns>A list of people that was in the file, if returns null this means that can't be read the file</returns>
         private static Subject[] ReadSubjectFile()
         {
             Subject[] sub = null;
@@ -114,7 +123,10 @@ namespace Rainbow_Schools
             return sub;
         }
 
-        // sort by name
+        /// <summary>
+        /// Sort a array of people by name using insertion sort.
+        /// </summary>
+        /// <param name="people">Is a array of people that will be ordenate.</param>
         private void InsertionSort(Person[] people)
         {
 
