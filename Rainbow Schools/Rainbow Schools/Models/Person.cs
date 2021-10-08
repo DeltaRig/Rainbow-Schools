@@ -28,7 +28,7 @@ namespace Rainbow_Schools
         override
         public string ToString()
         {
-            return _name + "\t|\t" + _class + "\t|\t" + _section;
+            return _name + "," + _class + "," + _section;
         }
     }
 }

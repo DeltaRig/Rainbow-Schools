@@ -204,17 +204,17 @@ namespace Rainbow_Schools
                 while (pivot >= minNum)
                 {
                     if (search.Equals(students[pivot].Name, StringComparison.CurrentCultureIgnoreCase))
-                        searchs.Add(students[pivot].ToString() + "\t at position " + (pivot + 1));
+                        searchs.Add(students[pivot].ToString() + " at position " + (pivot + 1));
                     else
                         break;
                     pivot--;
                 }
-                searchs.Add(students[foundElem].ToString() + "\t at position " + (foundElem + 1));
+                searchs.Add(students[foundElem].ToString() + " at position " + (foundElem + 1));
                 pivot = foundElem + 1;
                 while (pivot <= maxNum)
                 {
                     if (search.Equals(students[pivot].Name, StringComparison.CurrentCultureIgnoreCase))
-                        searchs.Add(students[pivot].ToString() + "\t at position " + (pivot + 1));
+                        searchs.Add(students[pivot].ToString() + " at position " + (pivot + 1));
                     else
                         break;
                     pivot++;
