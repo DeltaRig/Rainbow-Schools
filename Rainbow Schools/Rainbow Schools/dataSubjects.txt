@@ -1,3 +1,24 @@
-Desing Patters focus in SOLID, 4014-4, Bernardo
-Desing Patters focus in OOP, 4015-4, Bernardo
+Desing Patters focus in SOLID, 4014-4, Copsta
+Desing Patters focus in OOP, 4015-4, Copsta
 Programming's Funtamentals, 4016-4, Giraffa
+Algorithms and Data Structures I, 4017-4, Isabel
+Algorithms and Data Structures II, 4018-4, Isabel
+Algorithms and Data Structures I, 4019-4, JB
+Algorithms and Data Structures II, 4020-4, JB
+Algorithms Optimization, 4021-4, JB
+Fundamentals Database, 4022-4, Aruda
+Database II, 4023-4, Aruda
+Infrastructure for data management, 4024-4, Aruda
+Calculus I, 4025-4, Cardona
+Calculus I, 4026-4, Iuri
+Calculus I, 4027-4, Karina
+Calculus II, 4028-4, Cardona
+Calculus II, 4029-4, Iuri
+Algebra, 4030-4, Iuri
+Algebra, 4035-4, Cardona
+Probability and statistics, 4040-4, Kameko
+Numerical methods, 4041-4, JB
+Numerical methods, 4042-4, Mafalda
+Etics and citizenship, 4043-4, Cesar
+Functional Programming, 4044-4, Diego
+Parallel and distributed processing, 4045-4, De Rose

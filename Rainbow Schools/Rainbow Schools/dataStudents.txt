@@ -1,3 +1,32 @@
-Zelia, Administration, Bussines Adm
-Daniela, Math, Math II
-Rodrigo, Math, Appl
+Larissa, Math, Calculus II
+Julia, Math, Calculus II
+Caio, Math, Calculus II
+Kumar, Math, Calculus I
+Deepesh, Math, Calculus I
+Eduarda, Math, Calculus I
+Rodrigo, Math, Algebra
+Gustavo, Math, Algebra
+Deepesh, Math, Algebra
+Dija, Math, Algebra
+Caio, Math, Algebra
+Daniela, Math, Algebra
+Daniela, Filosophy, Ethics and citizenship
+Daniela, Database, Infrastructure for data management
+Daniela, Programming, Functional Programming
+Daniela, Programming, Parallel and distributed processing
+Andre, Programming, Parallel and distributed processing
+Daniela, Math, Algebra
+Morgana, Filosophy, Ethics and citizenship
+Morgana, Database, Infrastructure for data management
+Jonas, Database, Infrastructure for data management
+Morgana, Programming, Functional Programming
+Arthur, Programming, Functional Programming
+Morgana, Programming, Parallel and distributed processing
+Eduarda, Programming, Fundamentals
+Julia, Programming, Fundamentals
+Eduarda, Data Structures, Algorithms and Data Structures I
+Eduarda, Filosphy, Etics and citizenship
+Alex, Math, Numerical methods
+Jonas, Math, Numerical methods
+Lucas, Math, Numerical methods
+Lucas, Math, Probability and statistics
