@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IManagerData.cs" />
+    <Compile Include="Interfaces\IMenu.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Program.cs" />
